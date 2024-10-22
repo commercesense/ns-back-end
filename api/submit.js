@@ -14,6 +14,26 @@ export default function handler(req, res) {
     if (req.method === 'POST') {
       const formData = req.body;
       console.log('Form data received:', formData);
+ 
+       
+      var accountSettings = {
+        accountId: process.env.ACCOUNTID,
+        tokenKey: process.env.TOKENKEY,
+        tokenSecret: process.env.TOKENSECRET,
+        consumerKey: process.env.CONSUMERKEY,
+        consumerSecret: process.env.CONSUMERSECRET };
+    var urlSettings = {
+        url: process.env.CREATESALESOPPTYURL,
+     }
+     
+    //create a link
+    var myInvoices = nsrestlet.createLink(accountSettings, urlSettings)
+     
+    //then call get, post, put, or delete
+    myInvoices.post(formData, function(error, body)
+    {   console.log(error);
+        console.log(body);
+    }); 
   
       // Return a success message
       res.status(200).json({ message: 'Form has been successfully completed' });
