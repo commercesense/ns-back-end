@@ -1,0 +1,13 @@
+plaintext
+Copy code
+# Dependencies
+/node_modules
+
+# Build directory
+/build
+
+# Local environment variables
+.env
+
+# Editor directories and files
+.vscode/
