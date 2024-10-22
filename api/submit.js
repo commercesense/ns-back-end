@@ -7,6 +7,11 @@ export default function handler(req, res) {
   //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');   // Specify allowed HTTP methods
   //res.setHeader('Access-Control-Allow-Headers', 'Content-Type');         // Allow specific headers
 
+   // Add CORS headers to allow requests from the front-end
+   res.setHeader('Access-Control-Allow-Origin', 'https://ns-front-end.vercel.app'); // Allow only your front-end origin
+   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');            // Specify allowed HTTP methods
+   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');                  // Allow specific headers
+  
   // Handle preflight (OPTIONS) requests
   if (req.method === 'OPTIONS') {
     return res.status(200).end(); // End preflight request
