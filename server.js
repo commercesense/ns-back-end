@@ -10,7 +10,16 @@ const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(bodyParser.json());
-app.use(cors());
+// CORS configuration to allow specific origin
+const corsOptions = {
+  origin: 'http://localhost:3000', // Allow only this origin
+  methods: ['GET', 'POST', 'OPTIONS'], // Allow specific methods
+  allowedHeaders: ['Content-Type'], // Allow specific headers
+};
+
+// Apply CORS with the above options
+app.use(cors(corsOptions));
+//app.use(cors());
 
 // Define API routes
 app.post('/submit', (req, res) => {
