@@ -44,7 +44,7 @@ export default function handler(req, res) {
         return res.status(500).json({ error: 'Internal Server Error', details: error });
       }
       console.log('Response from NetSuite:', body);
-      return res.status(200).json({ message: body });
+      return res.status(200).json({ message: "Opportunity Saved" });
     }); 
   
       // Return a success message
