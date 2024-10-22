@@ -27,7 +27,7 @@ export default function handler(req, res) {
     var urlSettings = {
         url: process.env.CREATESALESOPPTYURL,
      }
-     
+     console.log('url settings received:', urlSettings);
     //create a link
     var myInvoices = nsrestlet.createLink(accountSettings, urlSettings)
      
@@ -35,7 +35,7 @@ export default function handler(req, res) {
     myInvoices.post(formData, function(error, body)
     {   console.log(error);
         console.log(body);
-        res.status(200).json({ message: body });
+        res.status(200).json({ message: error });
     }); 
   
       // Return a success message
