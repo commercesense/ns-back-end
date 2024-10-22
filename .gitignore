@@ -1,5 +1,3 @@
-plaintext
-Copy code
 # Dependencies
 /node_modules
 
@@ -11,3 +9,4 @@ Copy code
 
 # Editor directories and files
 .vscode/
+*.swp
