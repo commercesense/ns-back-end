@@ -34,9 +34,12 @@ export default function handler(req, res) {
      
     //then call get, post, put, or delete
     myInvoices.post(formData, function(error, body)
-    {   console.log(error);
-        console.log(body);
-        res.status(200).json({ message: body });
+    {    if (error) {
+        console.error('Error:', error);
+        return res.status(500).json({ error: 'Internal Server Error', details: error });
+      }
+      console.log('Response from NetSuite:', body);
+      return res.status(200).json({ message: body });
     }); 
   
       // Return a success message

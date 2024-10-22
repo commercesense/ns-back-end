@@ -10,16 +10,8 @@ const port = process.env.PORT || 5000;
 
 // Middleware
 app.use(bodyParser.json());
-// CORS configuration to allow specific origin
-const corsOptions = {
-  origin: 'http://localhost:3000', // Allow only this origin
-  methods: ['GET', 'POST', 'OPTIONS'], // Allow specific methods
-  allowedHeaders: ['Content-Type'], // Allow specific headers
-};
-
-// Apply CORS with the above options
-app.use(cors(corsOptions));
-//app.use(cors());
+ 
+app.use(cors());
 
 // Define API routes
 app.post('/submit', (req, res) => {
@@ -41,8 +33,12 @@ var myInvoices = nsrestlet.createLink(accountSettings, urlSettings)
  
 //then call get, post, put, or delete
 myInvoices.post(formData, function(error, body)
-{   console.log(error);
-    console.log(body);
+{   if (error) {
+  console.error('Error:', error);
+  return res.status(500).json({ error: 'Internal Server Error', details: error });
+}
+console.log('Response from NetSuite:', body);
+return res.status(200).json({ message: body });
 });
 
   // Return a success message
