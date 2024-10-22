@@ -1,3 +1,5 @@
+var nsrestlet = require('nsrestlet');
+
 export default function handler(req, res) {
 
     // Add CORS headers to the response
