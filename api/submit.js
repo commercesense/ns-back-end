@@ -35,10 +35,11 @@ export default function handler(req, res) {
     myInvoices.post(formData, function(error, body)
     {   console.log(error);
         console.log(body);
+        res.status(200).json({ message: body });
     }); 
   
       // Return a success message
-      res.status(200).json({ message: 'Form has been successfully completed' });
+      
     } else {
       res.status(405).json({ message: 'Method Not Allowed' });
     }
