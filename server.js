@@ -33,6 +33,10 @@ const corsOptions = {
 app.use(cors(corsOptions));
  
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
+
 // Define API routes
 app.post('/submit', (req, res) => {
   const formData = req.body;
