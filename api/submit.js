@@ -42,12 +42,13 @@ export default function handler(req, res) {
     {    if (error) {
         console.error('Error:', error);
         return res.status(500).json({ error: 'Internal Server Error', details: error });
+      } else {
+        console.log('Response from NetSuite:', body);
+        return res.status(200).json({ message: "Opportunity Saved" });
       }
-      console.log('Response from NetSuite:', body);
-      return res.status(200).json({ message: "Opportunity Saved" });
+    
     }); 
-  
-      // Return a success message
+   
       
     } else {
       res.status(405).json({ message: 'Method Not Allowed' });
