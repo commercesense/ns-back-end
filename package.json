@@ -2,10 +2,15 @@
 
   "name": "netsuite-server",
   "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "start": "node index.js" 
+    "start": "node index.js",
+    "build": "npm install"
   },
-
+  "engines": {
+    "node": "20.x"
+  },
+  "author": "Marcelino Raygoza",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
