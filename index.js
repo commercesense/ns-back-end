@@ -95,9 +95,10 @@ app.get('/corporatepartners', (req, res) => {
       url: process.env.GETCORPPARTNERSURL,
   }
   console.log('url settings received:', urlSettings.url);
+  console.log('accountSettings:', accountSettings);
   //create a link
   var corporatepartners = nsrestlet.createLink(accountSettings, urlSettings)
-  console.log('Form data received:', corporatepartners);
+  console.log('corporatepartners received:', corporatepartners);
   corporatepartners.get({action: 'getCorporatePartners'}, function(error, body){
     if (error) {
       console.error('Error:', error);
@@ -123,9 +124,11 @@ var urlSettings = {
     url: process.env.GETCORPPARTNERSURL,
 }
 console.log('url settings received:', urlSettings.url);
+
+console.log('accountSettings:', accountSettings);
 //create a link
 var dofmembers = nsrestlet.createLink(accountSettings, urlSettings)
-console.log('Form data received:', dofmembers);
+console.log('dofmembers:', dofmembers);
 dofmembers.get({action: 'getDOFMembers'}, function(error, body){
   if (error) {
     console.error('Error:', error);
