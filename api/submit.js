@@ -1,5 +1,7 @@
 var nsrestlet = require('nsrestlet');
 
+/* as of 11/16, the submit.js file might be irrelvent, and wwe should the below code to the index.js file **/
+
 export default function handler(req, res) {
 
     // Add CORS headers to the response

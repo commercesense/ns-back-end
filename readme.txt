@@ -1,4 +1,4 @@
-start app
+to start the app app
 npm start
 
 code deploy to to vercel

@@ -8,8 +8,16 @@ const dotenv = require("dotenv");
 dotenv.config();
 const port = process.env.PORT || 5000;
 
+app.use(cors());
+
 // Middleware
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "./public", "../public")));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+// setting up EJS
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "./views", "../views"));
 
 // Define your list of allowed origins
 const allowedOrigins = ['https://ns-front-end.vercel.app', 'http://localhost:3000'];
@@ -30,8 +38,9 @@ const corsOptions = {
 };
 
 // Apply the CORS middleware to all routes
-app.use(cors(corsOptions));
- 
+//app.use(cors(corsOptions));
+
+
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -141,3 +150,5 @@ if (process.env.NODE_ENV === 'production') {
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+module.exports = app;
